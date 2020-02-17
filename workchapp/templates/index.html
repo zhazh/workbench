@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>workbench</title>
+	<link href="static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="static/css/icomoon.css" rel="stylesheet">
+	<link href="static/css/workbench.css" rel="stylesheet">
+	<!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+	<!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+	<!--[if lt IE 9]>
+	  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+	  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+	<![endif]-->
+</head> 
+<body>
+<div class="workbench">
+	<div class="sidebar">
+		<div class="sidebar-brand">
+			<p>WorkBench v1.0</p>
+		</div>
+		<!--
+		<div class="sidebar-desc">
+			<p><small>author:zhazh by:2020.2</small></p>
+		</div>
+		<form action="" class="sidebar-search" method="post">
+			<input type="text" placeholder="搜索..." />
+		</form>
+		-->
+		<ul class="sidebar-nav">
+			<li class="active">
+				{{Tabbar.href('首页',Page.Home, '/home', 'icon-home2', False)}}
+			</li>
+			<li>
+				<a href="#submenu0" class="icon-users ind">团队</a>
+				<ul id="submenu0" class="submenu">
+					<li>
+						{{Tabbar.href('团队A',Page.Team1, '/team_1')}}
+					</li>
+					<li>
+						{{Tabbar.href('团队B',Page.Team2, '/team_2')}}
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#submenu1" class="icon-books ind">菜单1</a>
+				<ul id="submenu1" class="submenu">
+					<li><a href="#">菜单1-1</a></li>
+					<li><a href="#">菜单1-2</a></li>
+					<li>
+						<a class="ind" href="#submenu1_3">菜单1-3</a>
+						<ul id="submenu1_3" class="submenu">
+							<li><a href="#">孙菜单1-3-1</a></li>	
+							<li><a href="#">孙菜单1-3-2</a></li>
+						</ul>
+					</li>
+					<li>
+						<a class="ind" href="#submenu1_4">菜单1-4</a>
+						<ul id="submenu1_4" class="submenu" >
+							<li><a href="#">孙菜单1-4-1</a></li>	
+							<li><a href="#">孙菜单1-4-2</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#submenu2" class="icon-books ind">菜单2</a>
+				<ul id="submenu2" class="submenu">
+					<li><a href="#">菜单2-1</a></li>
+					<li>
+						<a href="#menu2_2" class="ind">菜单2-2</a>
+						<ul id="menu2_2" class="submenu">
+							<li><a href="#">menu2-2-1</a></li>
+							<li><a href="#">menu2-2-2</a></li>
+							<li><a href="#">menu2-2-3</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#menu2_3" class="ind">菜单2-3</a>
+						<ul id="menu2_3" class="submenu">
+							<li><a href="#">menu2-3-1</a></li>
+						</ul>
+					</li>
+					<li><a href="#">菜单2-4</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div><!--/sidebar -->
+	<div class="rt-pad">
+		<div class="padbar">
+			<ul class="padbar-tabbar" role="tablist">
+				<!-- 可关闭的Tab标签在这儿，通过ul.padbar-tabbar定位，注意此标签页面中只能有一个 -->
+			</ul>
+            <ul class="padbar-nav">
+				<li><a href="#">Setting</a></li>
+            	<li>
+					<form action="" class="padbar-form" method="post">
+						<input type="text" placeholder="搜索...."/>
+						<!--
+						<input type="text" class="" placeholder="用户名"/>
+						<input type="password" class="" placeholder="密码" />
+						<button type="submit" class="btn btn-primary">登录</button> 
+						-->
+					</form>
+            	</li>
+            </ul>
+		</div>
+		
+		<div class="tab-content">
+			<!-- 动态加载的网页在这儿 注意：通过div.tab-content定位，所以class="tab-content"的标签只能有一个-->
+		</div>
+		
+		<div class="foot">
+			<p class="text-muted">&copy; 2020 Workbench, Inc.</p>
+		</div>
+	</div><!--/rt-pad -->
+</div><!--/workbench -->
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/workbench.js"></script>
+</body>
+</html>
