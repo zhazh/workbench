@@ -192,7 +192,7 @@ function tb_href(item) {
 $(document).ready(function(){
 
 	// 增加首页Tab
-	var item = {'id':pages.home.id,'name':pages.home.name,'url':'/home','closable':pages.home.false};
+	var item = {'id':pages.home.id,'name':pages.home.name,'url':'/home','closable':pages.home.closable};
 	closableTab.addTab(item);
 		
 	// sidebar 选中菜单项紫色边框效果
