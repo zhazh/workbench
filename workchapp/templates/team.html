@@ -1,0 +1,25 @@
+<h1>员工信息列表</h1>
+<table class="table">
+	<tr>
+		<td>编号</td>
+		<td>姓名</td>
+		<td>性别</td>
+		<td>年龄</td>
+		<td>民族</td>
+		<td>籍贯</td>
+		<td>入司日期</td>
+	</tr>
+	{% for user in users %}
+	<tr>
+		<td>{{loop.index}}</td>
+		<td>
+			<a href="javascrit:void(0);" page="member" url="{{url_for('member', user_id=user.no)}}" onclick="tb_href(this)">{{user.name}}</a>
+		</td>
+		<td>{{user.sex}}</td>
+		<td>{{user.age}}</td>
+		<td>{{user.nation}}</td>
+		<td>{{user.birth_city}}</td>
+		<td>{{user.take_date}}</td>
+	</tr>
+	{% endfor %}
+</table>

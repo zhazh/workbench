@@ -31,18 +31,27 @@
 		-->
 		<ul class="sidebar-nav">
 			<li class="active">
-				{{Tabbar.href('首页',Page.Home, '/home', 'icon-home2', False)}}
+				<a href="javascrit:void(0);" class="icon-home2" page="home" url="/home" onclick="tb_href(this)">首页</a>
 			</li>
 			<li>
-				<a href="#submenu0" class="icon-users ind">团队</a>
+				<a href="#submenu0" class="icon-file-text ind">页面</a>
 				<ul id="submenu0" class="submenu">
 					<li>
-						{{Tabbar.href('团队A',Page.Team1, '/team_1')}}
+						<a href="javascrit:void(0);" page="page1" url="{{url_for('page', page_id=1)}}" onclick="tb_href(this)">页面1</a>
 					</li>
 					<li>
-						{{Tabbar.href('团队B',Page.Team2, '/team_2')}}
+						<a href="javascrit:void(0);" page="page2" url="{{url_for('page', page_id=2)}}" onclick="tb_href(this)">页面2</a>
+					</li>
+					<li>
+						<a href="javascrit:void(0);" page="page3" url="{{url_for('page', page_id=3)}}" onclick="tb_href(this)">页面3</a>
+					</li>
+					<li>
+						<a href="javascrit:void(0);" page="page4" url="{{url_for('page', page_id=4)}}" onclick="tb_href(this)">页面4</a>
 					</li>
 				</ul>
+			</li>
+			<li>
+				<a href="javascrit:void(0);" class="icon-users" page="team" url="/team" onclick="tb_href(this)">成员</a>
 			</li>
 			<li>
 				<a href="#submenu1" class="icon-books ind">菜单1</a>
@@ -63,27 +72,6 @@
 							<li><a href="#">孙菜单1-4-2</a></li>
 						</ul>
 					</li>
-				</ul>
-			</li>
-			<li>
-				<a href="#submenu2" class="icon-books ind">菜单2</a>
-				<ul id="submenu2" class="submenu">
-					<li><a href="#">菜单2-1</a></li>
-					<li>
-						<a href="#menu2_2" class="ind">菜单2-2</a>
-						<ul id="menu2_2" class="submenu">
-							<li><a href="#">menu2-2-1</a></li>
-							<li><a href="#">menu2-2-2</a></li>
-							<li><a href="#">menu2-2-3</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="#menu2_3" class="ind">菜单2-3</a>
-						<ul id="menu2_3" class="submenu">
-							<li><a href="#">menu2-3-1</a></li>
-						</ul>
-					</li>
-					<li><a href="#">菜单2-4</a></li>
 				</ul>
 			</li>
 		</ul>
