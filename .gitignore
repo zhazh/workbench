@@ -1,0 +1,4 @@
+#ignore flask directory 
+flask/
+#ignore workchapp/__pycache__
+workchapp/__pycache__/
