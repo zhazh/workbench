@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from workchapp import app
-from flask import render_template
+from flask import request, render_template
 
 # 首页
 @app.route('/', methods=['GET','POST'])
@@ -39,4 +39,10 @@ def member(user_id):
 @app.route('/page/<int:page_id>', methods=['GET'])
 def page(page_id):
 	return render_template('page.html', page_id=page_id)
+
+# 搜索页面
+@app.route('/search', methods=['GET'])
+def search():
+	keywords = request.args.get('keywords')
+	return render_template('search.html', keywords=keywords)
 

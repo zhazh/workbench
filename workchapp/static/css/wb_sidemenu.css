@@ -1,0 +1,74 @@
+/* 
+ * wb_sidemenu.css
+ */
+.sb-mu {
+	padding:15px 0;
+}
+
+.sb-mu a {
+	color:#ddd;
+	text-decoration:none;
+	display:block;
+	padding:10px 15px;
+}
+
+.sb-mu a:hover {
+	color:#fff;
+}
+
+.sb-mu a:focus {
+	color:#e64a19;
+	outline:none;
+}
+
+.sb-mu a.ind:after {
+	content: '';
+	float:right;
+	display: inline;
+	width: 0;
+	height: 0;
+	border-top: 6px solid transparent;
+	border-left: 6px solid #fff;
+	border-bottom: 6px solid transparent;
+	line-height:12px;
+}
+
+.sb-mu a.ind.down:after {
+	border-left: 6px solid transparent;
+	border-top: 6px solid #fff;
+	border-right: 6px solid transparent;
+}
+
+.sb-mu a:before {
+	padding-right:10px;
+}
+
+.sb-mu ul {
+	list-style-type:none;
+	text-align:left;
+}
+
+.sb-mu ul.sub-sb-mu {
+	display:none;	/* 子菜单默认收起/不显示 */
+}
+
+/*
+ * 以下一级菜单属性 
+ */
+ul.sb-mu {
+	padding-left:0;
+	list-style-type:none;
+	text-align:left;
+}
+
+ul.sb-mu>li {
+	border-left:4px solid #00695c;
+}
+
+ul.sb-mu>li.active {
+	border-left:4px solid #692d69;
+}
+
+ul.sb-mu>li>a:hover {
+	background-color:#692d69;
+}

@@ -7,6 +7,8 @@
 	<title>workbench</title>
 	<link href="static/css/bootstrap.min.css" rel="stylesheet">
 	<link href="static/css/icomoon.css" rel="stylesheet">
+	<link href="static/css/wb_padbar.css" rel="stylesheet">
+	<link href="static/css/wb_sidemenu.css" rel="stylesheet">
 	<link href="static/css/workbench.css" rel="stylesheet">
 	<!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
 	<!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
@@ -21,53 +23,45 @@
 		<div class="sidebar-brand">
 			<p>WorkBench v1.0</p>
 		</div>
-		<!--
-		<div class="sidebar-desc">
-			<p><small>author:zhazh by:2020.2</small></p>
-		</div>
-		<form action="" class="sidebar-search" method="post">
-			<input type="text" placeholder="搜索..." />
-		</form>
-		-->
-		<ul class="sidebar-nav">
+		<ul class="sb-mu">
 			<li class="active">
-				<a href="javascrit:void(0);" class="icon-home2" page="home" url="/home" onclick="tb_href(this)">首页</a>
+				<a href="javascrit:;" class="icon-home2" page="home" url="/home" onclick="tb_href(this)">首页</a>
 			</li>
 			<li>
 				<a href="#submenu0" class="icon-file-text ind">页面</a>
-				<ul id="submenu0" class="submenu">
+				<ul id="submenu0" class="sub-sb-mu">
 					<li>
-						<a href="javascrit:void(0);" page="page1" url="{{url_for('page', page_id=1)}}" onclick="tb_href(this)">页面1</a>
+						<a href="javascrit:;" page="page1" url="{{url_for('page', page_id=1)}}" onclick="tb_href(this)">页面1</a>
 					</li>
 					<li>
-						<a href="javascrit:void(0);" page="page2" url="{{url_for('page', page_id=2)}}" onclick="tb_href(this)">页面2</a>
+						<a href="javascrit:;" page="page2" url="{{url_for('page', page_id=2)}}" onclick="tb_href(this)">页面2</a>
 					</li>
 					<li>
-						<a href="javascrit:void(0);" page="page3" url="{{url_for('page', page_id=3)}}" onclick="tb_href(this)">页面3</a>
+						<a href="javascrit:;" page="page3" url="{{url_for('page', page_id=3)}}" onclick="tb_href(this)">页面3</a>
 					</li>
 					<li>
-						<a href="javascrit:void(0);" page="page4" url="{{url_for('page', page_id=4)}}" onclick="tb_href(this)">页面4</a>
+						<a href="javascrit:;" page="page4" url="{{url_for('page', page_id=4)}}" onclick="tb_href(this)">页面4</a>
 					</li>
 				</ul>
 			</li>
 			<li>
-				<a href="javascrit:void(0);" class="icon-users" page="team" url="/team" onclick="tb_href(this)">成员</a>
+				<a href="javascrit:;" class="icon-users" page="team" url="/team" onclick="tb_href(this)">成员</a>
 			</li>
 			<li>
 				<a href="#submenu1" class="icon-books ind">菜单1</a>
-				<ul id="submenu1" class="submenu">
+				<ul id="submenu1" class="sub-sb-mu">
 					<li><a href="#">菜单1-1</a></li>
 					<li><a href="#">菜单1-2</a></li>
 					<li>
 						<a class="ind" href="#submenu1_3">菜单1-3</a>
-						<ul id="submenu1_3" class="submenu">
+						<ul id="submenu1_3" class="sub-sb-mu">
 							<li><a href="#">孙菜单1-3-1</a></li>	
 							<li><a href="#">孙菜单1-3-2</a></li>
 						</ul>
 					</li>
 					<li>
 						<a class="ind" href="#submenu1_4">菜单1-4</a>
-						<ul id="submenu1_4" class="submenu" >
+						<ul id="submenu1_4" class="sub-sb-mu" >
 							<li><a href="#">孙菜单1-4-1</a></li>	
 							<li><a href="#">孙菜单1-4-2</a></li>
 						</ul>
@@ -82,31 +76,45 @@
 				<!-- 可关闭的Tab标签在这儿，通过ul.padbar-tabbar定位，注意此标签页面中只能有一个 -->
 			</ul>
             <ul class="padbar-nav">
-				<li><a href="#">Setting</a></li>
-            	<li>
-					<form action="" class="padbar-form" method="post">
-						<input type="text" placeholder="搜索...."/>
-						<!--
-						<input type="text" class="" placeholder="用户名"/>
-						<input type="password" class="" placeholder="密码" />
-						<button type="submit" class="btn btn-primary">登录</button> 
-						-->
-					</form>
+            	<li class="padbar-right"><a class="icon-exit" href="#"></a></li>
+            	<li class="padbar-form">
+					<input id="search" type="text" name="keywords" placeholder="搜索点什么..."/>
             	</li>
             </ul>
 		</div>
 		
-		<div class="tab-content">
-			<!-- 动态加载的网页在这儿 注意：通过div.tab-content定位，所以class="tab-content"的标签只能有一个-->
+		<div class="padbar-tabbar-content tab-content">
+			<!-- 动态加载的网页在这儿 注意：通过div.padbar-tabbar-content定位，所以class="padbar-tabbar-content"的标签只能有一个-->
+          	<!-- 预置的模态对话框，用于显示程序的提示信息 -->
+            <div class="modal fade" id="_wb_prompt" tabindex="-1" role="dialog" aria-labelledby="Lab_mdmsg" aria-hidden="true">
+            	<div class="modal-dialog">
+            		<div class="modal-content">
+            			<div class="modal-header">
+            				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            				<h4 class="modal-title" id="Lab_mdmsg">提示</h4>
+            			</div>
+            			<div class="modal-body">
+            				<!-- 提示信息动态写入此处 -->
+            			</div>
+            			<div class="modal-footer">
+            				<button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+            			</div>
+            		</div><!-- /.modal-content -->
+            	</div><!-- /.modal -->
+            </div>
 		</div>
 		
 		<div class="foot">
-			<p class="text-muted">&copy; 2020 Workbench, Inc.</p>
+			<p class="text-muted">
+				&copy; 2020 <a href="javascript:;" onclick="wb_prompt('Workbench 1.0 author:zhazh by:2020.2')">Workbench</a>, Inc.
+			</p>
 		</div>
 	</div><!--/rt-pad -->
 </div><!--/workbench -->
 <script src="static/js/jquery.min.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/wb_padbar.js"></script>
+<script src="static/js/wb_sidemenu.js"></script>
 <script src="static/js/workbench.js"></script>
 </body>
 </html>
